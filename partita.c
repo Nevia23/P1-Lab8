@@ -8,7 +8,7 @@ void gioca(char board[], void(*p1)(int *x, int *y), void(*p2)(int *x, int *y)) {
     int turno = 1;
     int mossa_x, mossa_y;
 
-    while (partita_terminata == 0) {
+    while (board_vincente(board)==0 && board_riempita(board)==0) {
         if (turno == 1) {
             p1(&mossa_x, &mossa_y);
 
@@ -40,7 +40,7 @@ void gioca(char board[], void(*p1)(int *x, int *y), void(*p2)(int *x, int *y)) {
     }
 
     if (board_vincente (board) == 1) {
-        printf("Ha vinto il giocatore %d\n", ((turno+1)%2)+1);
+        printf("Ha vinto il giocatore %d\n", (turno%2)+1);
         return;
     }
 }

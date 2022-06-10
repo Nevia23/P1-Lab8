@@ -8,7 +8,10 @@ int board_riempita(char board[]) {
                 1 se tutte le caselle hanno un simbolo diverso da CASELLA_VUOTA (lo spazio)
                 0 altrimenti
     */
-    for(int i=0; i<BOARD_SIZE; i+=1)
+
+    int i;
+
+    for(i=0; i<BOARD_SIZE; i+=1)
         if (board[i]==CASELLA_VUOTA)
             return 0;
     return 1;
@@ -23,7 +26,10 @@ int board_vincente(char board[]) {
                 1 se uno dei due giocatori ha vinto (si hanno 3 simboli uguali su una riga, una colonna o su una diagonale)
                 0 altrimenti
     */
-    for(int i=0; i<BOARD_LATO; i+=1) 
+
+    int i;
+
+    for(i=0; i<BOARD_LATO; i+=1) 
         if(tris_in_riga(board, i)==1 || tris_in_colonna(board, i)==1)
             return 1;
     if (tris_in_diagonali(board)==1)
@@ -105,7 +111,10 @@ void reset_board(char board[]) {
      * PRE: board ha dimensione BOARD_SIZE
      * POST per ogni i tale che 0<=i<BOARD_SIZE si ha board[i]=CASELLA_VUOTA
      */
-    for(int i=0; i<BOARD_SIZE; i+=1)
+    
+    int i;
+
+    for(i=0; i<BOARD_SIZE; i+=1)
         board[i] = CASELLA_VUOTA;
 }
 
@@ -169,9 +178,11 @@ int tris_in_riga(char board[], int num_riga) {
                 1 se la riga num_riga è non vuota e con tutti i simboli uguali
                 0 altrimenti
     */
+    int i;
+    
     if (board[num_riga*BOARD_LATO] == CASELLA_VUOTA)
         return 0;
-    for(int i=1; i<BOARD_LATO; i++)
+    for(i=1; i<BOARD_LATO; i++)
         if (board[num_riga*BOARD_LATO]!=board[num_riga*BOARD_LATO+i])
             return 0;    
     return 1;

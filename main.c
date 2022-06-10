@@ -26,10 +26,11 @@ int main(int argc, char *argv[]) {
     while(continua == 's'){
         print_board(board);
 
-        if(strcmp(argv[1], "1vs1")==0)
+        if(strcmp(argv[1], "1vs1")==0) {
             gioca(board, scegli_mossa_utente, scegli_mossa_utente);
-        else
+        } else {
             gioca(board, scegli_mossa_utente, scegli_mossa_computer);
+        }
         reset_board(board);
 
         printf("Altra partita? (s/n)\n");
