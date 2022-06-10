@@ -36,5 +36,4 @@ int main(int argc, char *argv[]) {
         printf("Altra partita? (s/n)\n");
         scanf(" %c%*c", &continua);
     }
-
 }
