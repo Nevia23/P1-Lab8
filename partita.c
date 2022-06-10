@@ -12,7 +12,7 @@ void gioca(char board[], void(*p1)(int *x, int *y), void(*p2)(int *x, int *y)) {
         if (turno == 1) {
             p1(&mossa_x, &mossa_y);
 
-            while (mossa_ammisibile (board, mossa_x, mossa_y) == 0) {
+            while (mossa_ammissibile (board, mossa_x, mossa_y) == 0) {
                 p1(&mossa_x, &mossa_y);
             }
 
@@ -22,7 +22,7 @@ void gioca(char board[], void(*p1)(int *x, int *y), void(*p2)(int *x, int *y)) {
         } else {
             p2(&mossa_x, &mossa_y);
 
-            while (mossa_ammisibile (board, mossa_x, mossa_y) == 0) {
+            while (mossa_ammissibile (board, mossa_x, mossa_y) == 0) {
                 p2(&mossa_x, &mossa_y);
             }
 
