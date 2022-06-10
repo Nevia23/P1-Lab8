@@ -13,4 +13,3 @@ void scegli_mossa_computer(int *x, int *y);
 /* Notate che potete usare la costante BOARD_LATO nel vostro codice. */
 
 #endif
-

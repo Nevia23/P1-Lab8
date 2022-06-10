@@ -54,8 +54,11 @@ int mossa_ammissibile(char board[], int x, int y) {
         POST restituisce 1 se la mossa è ammissibile, 0 altrimenti
      */
 
+    int k = BOARD_LATO*x + y;
 
-  // INSERITE IL CODICE QUA
+    if (k > 9 || k < 0 || board[k] != CASELLA_VUOTA) {
+        return 0;
+    }
 
     return 1;
 }
@@ -110,21 +113,53 @@ void reset_board(char board[]) {
 int tris_in_colonna(char board[], int num_col) {
     /* 
         POST Restituisce 
-                1 se la riga num_riga è non vuota e con tutti i simboli uguali
+                1 se la colonna num_col è non vuota e con tutti i simboli uguali
                 0 altrimenti
     */
 
-  // INSERITE IL CODICE QUA
+    int a = num_col, b = num_col + BOARD_LATO, c = num_col + BOARD_LATO*2;
+
+    if (board[a] == CASELLA_VUOTA || board[a] != board[b] || board[b] != board[c] || board[c] != board[a]) {
+        return 0;
+    }
   
-  return 1;
+    return 1;
 }
 
 
 int tris_in_diagonali(char board[]) {
 
-    // INSERITE IL CODICE QUA
+    //controllo diagonale principale: (0,0),(1,1),(2,2)
+    if (board[0] != CASELLA_VUOTA) {
+        int i, check = 1;
+        
+        for (i = 1; i < BOARD_LATO; i++) {
+            if (board[0] != board[BOARD_LATO*i + i]) {
+                check = 0;
+            }
+        }
+        
+        if (check == 1) {
+            return 1;
+        }
+    }
 
-  return 0;
+    //controllo diagonale principale inversa: (0,2),(1,1),(2,0)
+    if (board[BOARD_LATO - 1] != CASELLA_VUOTA) {
+        int i, check = 1;
+        
+        for (i = 1; i < BOARD_LATO; i++) {
+            if (board[BOARD_LATO - 1] != board[BOARD_LATO*i + BOARD_LATO - i - 1]) {
+                check = 0;
+            }
+        }
+        
+        if (check == 1) {
+            return 1;
+        }
+    }
+
+    return 0;
 }
 
 
