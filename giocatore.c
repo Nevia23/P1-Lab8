@@ -11,8 +11,6 @@ void scegli_mossa_utente(int *x, int *y) {
 
 
 void scegli_mossa_computer(int *x, int *y) {
-    
-    // Inserite qua il vostro codice
-    
+    *x = rand()%BOARD_LATO;
+    *y = rand()%BOARD_LATO;    
 }
-
