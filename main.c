@@ -5,7 +5,6 @@
 #include "partita.h"
 #include "giocatore.h"
 
-
 int main(int argc, char *argv[]) {
 
     srand(1);
